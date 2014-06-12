@@ -13,4 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require underscore
+//= require backbone
+//= require backboneSync
 //= require_tree .
+
+$().ready(function() {
+  console.log('loaded bro');
+  var packr = new PackrRouter();
+  Backbone.history.start();
+});
