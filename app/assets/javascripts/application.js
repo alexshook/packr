@@ -18,8 +18,19 @@
 //= require backboneSync
 //= require_tree .
 
+$().ajaxSend(function(e, xhr, options) {
+  var csrfToken = $('meta[name="csrf-token"]').attr('content');
+  xhr.setRequestHeader ('X-CSRF-Token', csrfToken);
+});
+
 $().ready(function() {
   console.log('loaded bro');
   var packr = new PackrRouter();
   Backbone.history.start();
 });
+
+_.templateSettings = {
+    interpolate: /{{=(.+?)}}/g,
+    evaluate: /{{(.+?)}}/g
+};
+
